@@ -1,0 +1,303 @@
+/* ==========================================================================
+   SABAB MAHABUB - PORTFOLIO STYLESHEET
+   Palette: Bordeaux & Gold (Luxury Editorial)
+   - Background:   #5A1828 (Deep Bordeaux)
+   - Soft surface: #6B2234 (Plum / Wine Card Surface)
+   - Accent:       #D9B26B (Warm Champagne Gold)
+   - Text:         #F7EEE2 (Warm Cream / Ivory)
+   - Muted:        #CFA9B0 (Dusty Rose / Muted Blush)
+   Typography: Book Antiqua / Palatino / Cormorant Garamond
+   Spacing: Generous, Open, Editorial Breathing Room
+   ========================================================================== */
+
+:root {
+  --color-bg: #5A1828;
+  --color-bg-deep: #43101C;
+  --color-bg-darker: #330A14;
+  --color-surface: #6B2234;
+  --color-surface-hover: #78273B;
+  --color-surface-glass: rgba(107, 34, 52, 0.82);
+  --color-accent-gold: #D9B26B;
+  --color-accent-gold-hover: #E5C380;
+  --color-text-cream: #F7EEE2;
+  --color-text-muted: #CFA9B0;
+  --color-border-gold: rgba(217, 178, 107, 0.28);
+  --color-border-muted: rgba(207, 169, 176, 0.22);
+
+  --font-serif-antiqua: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans-support: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --shadow-bordeaux: 0 25px 50px -12px rgba(34, 7, 13, 0.65), 0 10px 24px -10px rgba(0, 0, 0, 0.4);
+  --shadow-gold-glow: 0 0 35px rgba(217, 178, 107, 0.25);
+  --shadow-card-hover: 0 30px 65px -15px rgba(26, 4, 9, 0.8), 0 12px 28px -8px rgba(217, 178, 107, 0.15);
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(107, 34, 52, 0.6) 0px, transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(217, 178, 107, 0.12) 0px, transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(67, 16, 28, 0.85) 0px, transparent 55%),
+    radial-gradient(circle at 15% 90%, rgba(207, 169, 176, 0.1) 0px, transparent 45%),
+    radial-gradient(circle at 85% 95%, rgba(107, 34, 52, 0.7) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--color-text-cream);
+  font-family: var(--font-serif-antiqua);
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.015em;
+  overflow-x: hidden;
+}
+
+/* Headings with Book Antiqua elegance */
+h1, h2, h3, h4, h5, h6, .font-antiqua {
+  font-family: var(--font-serif-antiqua);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-text-cream);
+}
+
+.font-sans-support {
+  font-family: var(--font-sans-support);
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--color-accent-gold);
+  color: #330A14;
+}
+
+/* Luxury Bordeaux Glass Panels */
+.glass-panel {
+  background: rgba(107, 34, 52, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border-gold);
+  box-shadow: var(--shadow-bordeaux);
+}
+
+.glass-panel-deep {
+  background: rgba(67, 16, 28, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border-muted);
+  box-shadow: var(--shadow-bordeaux);
+}
+
+.glass-panel-nav {
+  background: rgba(79, 21, 35, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(217, 178, 107, 0.3);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Card hover physics */
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(217, 178, 107, 0.55);
+}
+
+/* Custom Scrollbar in Bordeaux & Gold */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #43101C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6B2234;
+  border-radius: 9999px;
+  border: 2px solid #43101C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D9B26B;
+}
+
+/* Floating Animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatGentle 7s ease-in-out 2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.marquee-track {
+  display: flex;
+  width: 200%;
+  animation: marquee 34s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Luxury Badges */
+.badge-gold {
+  background: rgba(217, 178, 107, 0.15);
+  color: var(--color-accent-gold);
+  border: 1px solid rgba(217, 178, 107, 0.35);
+  font-family: var(--font-sans-support);
+}
+
+.badge-muted {
+  background: rgba(207, 169, 176, 0.15);
+  color: var(--color-text-cream);
+  border: 1px solid rgba(207, 169, 176, 0.28);
+  font-family: var(--font-sans-support);
+}
+
+.badge-wine {
+  background: #501321;
+  color: #D9B26B;
+  border: 1px solid rgba(217, 178, 107, 0.25);
+  font-family: var(--font-sans-support);
+}
+
+/* Interactive Buttons */
+.btn-gold {
+  background: #D9B26B;
+  color: #43101C;
+  box-shadow: 0 12px 28px -6px rgba(217, 178, 107, 0.35);
+  font-family: var(--font-sans-support);
+  font-weight: 700;
+  transition: all 0.35s ease;
+}
+
+.btn-gold:hover {
+  background: #E5C380;
+  color: #2F0913;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -6px rgba(217, 178, 107, 0.5);
+}
+
+.btn-ghost-cream {
+  background: transparent;
+  color: #F7EEE2;
+  border: 1.5px solid rgba(247, 238, 226, 0.75);
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-sans-support);
+  font-weight: 600;
+  transition: all 0.35s ease;
+}
+
+.btn-ghost-cream:hover {
+  background: rgba(247, 238, 226, 0.1);
+  border-color: #D9B26B;
+  color: #D9B26B;
+  transform: translateY(-2px);
+}
+
+.btn-wine-card {
+  background: #6B2234;
+  color: #F7EEE2;
+  border: 1px solid rgba(217, 178, 107, 0.35);
+  font-family: var(--font-sans-support);
+  transition: all 0.35s ease;
+}
+
+.btn-wine-card:hover {
+  background: #7E283D;
+  border-color: #D9B26B;
+  color: #D9B26B;
+  transform: translateY(-2px);
+}
+
+/* Toast Notification in Bordeaux & Gold */
+#toast {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  font-family: var(--font-sans-support);
+  background: #43101C;
+  border: 1px solid #D9B26B;
+  color: #F7EEE2;
+}
+
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Printable CV Stylesheet */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-family: 'Book Antiqua', Georgia, serif !important;
+  }
+  
+  .no-print, header, footer, #toast, .marquee-section, .floating-cta {
+    display: none !important;
+  }
+  
+  .cv-modal-content {
+    background: #FFFFFF !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  .cv-modal-content * {
+    color: #111111 !important;
+    border-color: #DDDDDD !important;
+    background: transparent !important;
+  }
+}
